@@ -2,7 +2,7 @@
 Plugin Name: Codescar Radio Widget
 Plugin URI: http://projects.codescar.eu/radio_widget.zip
 Description: Radio widget uses html5 audio element to play radio in sidebar
-Author: sudavar
+Author: Sudavar
 Version: 0.1
 Author URI: http://profiles.wordpress.org/sudavar
 Contributors: lion2486
