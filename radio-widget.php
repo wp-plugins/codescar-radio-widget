@@ -6,11 +6,11 @@
     Author: Sudavar
     Author URI: http://profiles.wordpress.org/sudavar
     Description: Codescar Radio Widget produces a widget allowing users listen to a radio station from your website.
-    Version: 0.3.1
+    Version: 0.4
     Tags: radio widget, codescar, radio, radio stations, radio player, audio element html5, widget
     Requires at least: 3.0.1
     Tested up to: 3.9
-    Stable tag: 0.3.1
+    Stable tag: 0.4
     Text Domain: codescar-radio-widget
     License: GPLv2
     License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -39,11 +39,11 @@ class Codescar_Radio_widget extends WP_Widget {
                 7 => array( 'name' => "Parea 104", 'url' => "http://parea104.live24.gr/parea104"),
                 )
         );
-        $radio = maybe_serialize($radio);
-        add_option('cdscr_radio_settings', $radio);
+        $radio = maybe_serialize ( $radio );
+        add_option( 'cdscr_radio_settings', $radio );
         parent::__construct(
             'codescar_radio_widget', // Base ID
-            __('Codescar Radio Widget'), // Name
+            __( 'Codescar Radio Widget' ), // Name
             array( 'description' => __( 'Radio player widget', 'Uses html5 audio element to play radio in sidebar' ),
             ) // Args
         );
@@ -59,23 +59,23 @@ class Codescar_Radio_widget extends WP_Widget {
      */
     public function widget( $args, $instance ) {
         $radio = get_option( 'cdscr_radio_settings' );
-        $radio = maybe_unserialize($radio);
+        $radio = maybe_unserialize( $radio );
         $title = apply_filters( 'widget_title', $instance['title'] );
 
-		echo $args['before_widget'];
-		if ( ! empty( $title ) )
-			echo $args['before_title'] . $title . $args['after_title'];
+        echo $args['before_widget'];
+        if ( ! empty( $title ) )
+            echo $args['before_title'] . $title . $args['after_title'];
         echo $args[ 'before_widget' ];
         ?>
         <div class="radio-widget">
             <div class="radio_block">
                 <audio  src="<?php echo $instance[ 'default' ]; ?>" id="radio_player"
-                        <?php echo ($instance[ 'auto' ]) ? 'autoplay="autoplay"': ''; ?> >
+                        <?php echo ( $instance[ 'auto' ] ) ? 'autoplay="autoplay"': ''; ?> >
                 </audio>
                 <div id="radio_controls">
                     <div class="radio_cube">
                         <button type="button" id="radio_play">
-                            <?php echo ($instance[ 'auto' ]) ? __( 'Pause' ) : __( 'Play' ); ?>
+                            <?php echo ( $instance[ 'auto' ] ) ? __( 'Pause' ) : __( 'Play' ); ?>
                         </button>
                         <button type="button" id="radio_mute"><?php echo __( 'Mute' ); ?></button>
                     </div>
@@ -103,13 +103,13 @@ class Codescar_Radio_widget extends WP_Widget {
     }
 
     /**
-	 * Outputs the options form on admin
-	 *
-	 * @param array $instance The widget options
-	 */
+     * Outputs the options form on admin
+     *
+     * @param array $instance The widget options
+     */
     public function form( $instance ) {
         $radio = get_option( 'cdscr_radio_settings' );
-        $radio = maybe_unserialize($radio);
+        $radio = maybe_unserialize( $radio );
         $instance = wp_parse_args( (array) $instance, $radio );
         ?>
         <p><fieldset class="basic-grey">
@@ -149,15 +149,15 @@ class Codescar_Radio_widget extends WP_Widget {
                         />
             </label>
         </fieldset></p>
-		<?php
-	}
+        <?php
+    }
 
     /**
-	 * Processing widget options on save
-	 *
-	 * @param array $new_instance The new options
-	 * @param array $old_instance The previous options
-	 */
+     * Processing widget options on save
+     *
+     * @param array $new_instance The new options
+     * @param array $old_instance The previous options
+     */
     function update($new_instance, $old_instance) {
         $instance = $old_instance;
         $instance[ 'title' ] = strip_tags($new_instance[ 'title' ]);
@@ -168,6 +168,10 @@ class Codescar_Radio_widget extends WP_Widget {
     }
 }
 
+require_once dirname( __FILE__ ) . '/radio-widget-settings.php';
+if( is_admin() )
+    $my_settings_page = new Codescar_Radio_Widget_Settings();
+
 // Function registering the radio widget
 function cdscr_register_radio_widget() {
     register_widget( 'Codescar_Radio_Widget' );
@@ -176,11 +180,11 @@ add_action( 'widgets_init', 'cdscr_register_radio_widget');
 
 // Function registering radio widget scripts
 function cdscr_register_radio_css_js() {
-	wp_enqueue_script(
+    wp_enqueue_script(
         'radio-script',
         plugins_url().'/radio-widget/radio-js.js',
         array( 'jquery' )
-	);
+    );
     wp_enqueue_style( 
         'radio-style',
         plugins_url().'/radio-widget/radio-style.css'
