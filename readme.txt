@@ -2,11 +2,10 @@
 Contributors: Sudavar
 Author URI: http://profiles.wordpress.org/sudavar
 Plugin URI: http://projects.codescar.eu/radio_widget.zip
-Version: 0.2
 Tags: radio widget, codescar, radio, radio stations, radio player, audio element html5, widget
 Requires at least: 3.0.1
 Tested up to: 3.9
-Stable tag: 0.2
+Stable tag: 0.3
 Text Domain: codescar-radio-widget
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
