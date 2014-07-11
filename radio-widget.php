@@ -1,15 +1,16 @@
 <?php
 /*
-    Plugin Name: Codescar Radio Widget
-    Plugin URI: http://codescar.eu/radio_widget.zip
-    Description: Radio widget uses html5 audio element to play radio in sidebar
+    Plugin Name: Codescar Radio widget
+    Plugin URI: http://wordpress.org/plugins/codescar-radio-widget/
+    Contributors: Sudavar
     Author: Sudavar
-    Version: 0.1
     Author URI: http://profiles.wordpress.org/sudavar
-    Contributors: lion2486
+    Description: Codescar Radio Widget produces a widget allowing users listen to a radio station from your website.
+    Version: 0.3.1
     Tags: radio widget, codescar, radio, radio stations, radio player, audio element html5, widget
     Requires at least: 3.0.1
     Tested up to: 3.9
+    Stable tag: 0.3.1
     Text Domain: codescar-radio-widget
     License: GPLv2
     License URI: http://www.gnu.org/licenses/gpl-2.0.html

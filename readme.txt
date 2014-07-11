@@ -1,32 +1,28 @@
 === Codescar Radio Widget ===
-Plugin Name: Codescar Radio Widget
-Plugin URI: http://projects.codescar.eu/radio_widget.zip
-Description: Radio widget uses html5 audio element to play radio in sidebar
-Author: Sudavar
-Version: 0.1
+Contributors: Sudavar
 Author URI: http://profiles.wordpress.org/sudavar
-Contributors: lion2486
+Plugin URI: http://projects.codescar.eu/radio_widget.zip
 Tags: radio widget, codescar, radio, radio stations, radio player, audio element html5, widget
 Requires at least: 3.0.1
 Tested up to: 3.9
-Stable tag: 0.1
+Stable tag: 0.3.1
 Text Domain: codescar-radio-widget
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Radio widget produces a widget for your wordpress site allowing
-your users can listen to a radio station from your website.
+Codescar Radio Widget produces a widget allowing users listen to a radio station from your website.
 
 == Description ==
 
-Radio widget produces a widget for your wordpress site allowing
-your users can listen to a radio station from your website. 
+Codescar Radio Widget produces a widget for your wordpress site allowing 
+your users listen to a radio station from your website.
 It uses html5 audio element to play radio in sidebar.
 
-Features:
-* Admin can select default station, set initial volume and autoplay or not.
+= Features: =
 
-Soon to add:
+* Admin can select default station, set initial volume and autoplay or not.
+ 
+= Soon to add: =
 
 * Control of the radio stations available (Adding / Removing from db)
 * Maybe a fallback to play asx streams. HTML5 can't play them yet.
@@ -45,5 +41,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 0.3.1 =
+* Wrong function names changed
+
+= 0.2 =
+* Some minor changes
+
 = 0.1 =
-First version
+* First version
