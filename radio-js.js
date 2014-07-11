@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
     $('#radio_stations').change(function() {
         var src = $("select option:selected").attr('value');
         $('#radio_player').attr('src', src);
-        radio.play();//Trigger click event
+        radio.play();
     } );
     /*
      * //TODO maybe check if radio is playing and if yes, 
@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
             mute.text("Mute");
         } else {
             radio.muted = true;
-            mute.text("Unmute");
+            mute.text("Muted");
         }
     });
 
