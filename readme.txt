@@ -5,7 +5,7 @@ Plugin URI: http://projects.codescar.eu/radio_widget.zip
 Tags: radio widget, codescar, radio, radio stations, radio player, audio element html5, widget
 Requires at least: 3.0.1
 Tested up to: 3.9
-Stable tag: 0.4
+Stable tag: 0.4.1
 Text Domain: codescar-radio-widget
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -43,6 +43,7 @@ This section describes how to install the plugin and get it working.
 
 = 0.4 =
 * Added control of radio stations available from an options page in admin menu
+* 0.4.1 fixed wrong parent folder name
 
 = 0.3.1 =
 * Wrong function names changed

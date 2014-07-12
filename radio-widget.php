@@ -6,11 +6,11 @@
     Author: Sudavar
     Author URI: http://profiles.wordpress.org/sudavar
     Description: Codescar Radio Widget produces a widget allowing users listen to a radio station from your website.
-    Version: 0.4
+    Version: 0.4.1
     Tags: radio widget, codescar, radio, radio stations, radio player, audio element html5, widget
     Requires at least: 3.0.1
     Tested up to: 3.9
-    Stable tag: 0.4
+    Stable tag: 0.4.1
     Text Domain: codescar-radio-widget
     License: GPLv2
     License URI: http://www.gnu.org/licenses/gpl-2.0.html
