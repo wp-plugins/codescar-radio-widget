@@ -10,13 +10,13 @@ Text Domain: codescar-radio-widget
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Codescar Radio Widget produces a widget allowing users listen to a radio station from your website. Currently only Greek stations available.
+Codescar Radio Widget produces a widget allowing users listen to a radio station from your website.
 
 == Description ==
 
 Codescar Radio Widget produces a widget for your wordpress site allowing 
 your users listen to a radio station from your website.
-It uses html5 audio element to play radio in sidebar. Currently only Greek stations available.
+It uses html5 audio element to play radio in sidebar.
 
 = Features: =
 
