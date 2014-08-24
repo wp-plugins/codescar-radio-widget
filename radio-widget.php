@@ -62,9 +62,9 @@ class Codescar_Radio_widget extends WP_Widget {
         $radio = maybe_unserialize( $radio );
         $title = apply_filters( 'widget_title', $instance['title'] );
 
-		echo $args['before_widget'];
-		if ( ! empty( $title ) )
-			echo $args['before_title'] . $title . $args['after_title'];
+        echo $args['before_widget'];
+        if ( ! empty( $title ) )
+            echo $args['before_title'] . $title . $args['after_title'];
         echo $args[ 'before_widget' ];
         ?>
         <div class="radio-widget">
@@ -103,10 +103,10 @@ class Codescar_Radio_widget extends WP_Widget {
     }
 
     /**
-	 * Outputs the options form on admin
-	 *
-	 * @param array $instance The widget options
-	 */
+     * Outputs the options form on admin
+     *
+     * @param array $instance The widget options
+     */
     public function form( $instance ) {
         $radio = get_option( 'cdscr_radio_settings' );
         $radio = maybe_unserialize( $radio );
@@ -149,15 +149,15 @@ class Codescar_Radio_widget extends WP_Widget {
                         />
             </label>
         </fieldset></p>
-		<?php
-	}
+        <?php
+    }
 
     /**
-	 * Processing widget options on save
-	 *
-	 * @param array $new_instance The new options
-	 * @param array $old_instance The previous options
-	 */
+     * Processing widget options on save
+     *
+     * @param array $new_instance The new options
+     * @param array $old_instance The previous options
+     */
     function update($new_instance, $old_instance) {
         $instance = $old_instance;
         $instance[ 'title' ] = strip_tags($new_instance[ 'title' ]);
@@ -180,11 +180,11 @@ add_action( 'widgets_init', 'cdscr_register_radio_widget');
 
 // Function registering radio widget scripts
 function cdscr_register_radio_css_js() {
-	wp_enqueue_script(
+    wp_enqueue_script(
         'radio-script',
         plugins_url().'/codescar-radio-widget/radio-js.js',
         array( 'jquery' )
-	);
+    );
     wp_enqueue_style( 
         'radio-style',
         plugins_url().'/codescar-radio-widget/radio-style.css'
