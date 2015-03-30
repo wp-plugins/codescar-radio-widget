@@ -6,11 +6,11 @@
     Author: Sudavar
     Author URI: http://profiles.wordpress.org/sudavar
     Description: Codescar Radio Widget produces a widget allowing users listen to a radio station from your website.
-    Version: 0.4.1
+    Version: 0.4.2
     Tags: radio widget, codescar, radio, radio stations, radio player, audio element html5, widget
     Requires at least: 3.0.1
     Tested up to: 3.9
-    Stable tag: 0.4.1
+    Stable tag: 0.4.2
     Text Domain: codescar-radio-widget
     License: GPLv2
     License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -37,7 +37,9 @@ class Codescar_Radio_widget extends WP_Widget {
                 5 => array( 'name' => "Melodia 99.2", 'url' => "http://netradio.live24.gr/melodia"),
                 6 => array( 'name' => "Love Radio", 'url' => "http://loveradio.live24.gr/loveradio-1000"),
                 7 => array( 'name' => "Parea 104", 'url' => "http://parea104.live24.gr/parea104"),
-                )
+                8 => array( 'name' => "Fepa Radio", 'url' => "http://radio.efepa.gr:3102/radio")
+                ),
+            'auto' => 1
         );
         $radio = maybe_serialize ( $radio );
         add_option( 'cdscr_radio_settings', $radio );
@@ -62,10 +64,9 @@ class Codescar_Radio_widget extends WP_Widget {
         $radio = maybe_unserialize( $radio );
         $title = apply_filters( 'widget_title', $instance['title'] );
 
-        echo $args['before_widget'];
-        if ( ! empty( $title ) )
-            echo $args['before_title'] . $title . $args['after_title'];
-        echo $args[ 'before_widget' ];
+		echo $args['before_widget'];
+		if ( ! empty( $title ) )
+			echo $args['before_title'] . $title . $args['after_title'];
         ?>
         <div class="radio-widget">
             <div class="radio_block">
@@ -83,7 +84,7 @@ class Codescar_Radio_widget extends WP_Widget {
                         <input  type="range" id="radio_volume" min="0.1" max="1" step="0.1"
                                 value="<?php echo $instance[ 'volume' ]; ?>">
                     </div>
-                  </div>
+                </div>
             </div>
             <div class="radio_block">
                 <select id="radio_stations">
@@ -103,14 +104,18 @@ class Codescar_Radio_widget extends WP_Widget {
     }
 
     /**
-     * Outputs the options form on admin
-     *
-     * @param array $instance The widget options
-     */
+	 * Outputs the options form on admin
+	 *
+	 * @param array $instance The widget options
+	 */
     public function form( $instance ) {
         $radio = get_option( 'cdscr_radio_settings' );
         $radio = maybe_unserialize( $radio );
         $instance = wp_parse_args( (array) $instance, $radio );
+		if ( !isset( $instance[ 'title' ] ) )
+			$instance[ 'title' ] = "Radio Widget";
+		if ( !isset( $instance[ 'auto' ] ) )
+			$instance[ 'auto' ] = 0;
         ?>
         <p><fieldset class="basic-grey">
             <legend><?php echo __( 'Settings' ); ?>:</legend>
@@ -149,15 +154,15 @@ class Codescar_Radio_widget extends WP_Widget {
                         />
             </label>
         </fieldset></p>
-        <?php
-    }
+		<?php
+	}
 
     /**
-     * Processing widget options on save
-     *
-     * @param array $new_instance The new options
-     * @param array $old_instance The previous options
-     */
+	 * Processing widget options on save
+	 *
+	 * @param array $new_instance The new options
+	 * @param array $old_instance The previous options
+	 */
     function update($new_instance, $old_instance) {
         $instance = $old_instance;
         $instance[ 'title' ] = strip_tags($new_instance[ 'title' ]);
@@ -180,11 +185,11 @@ add_action( 'widgets_init', 'cdscr_register_radio_widget');
 
 // Function registering radio widget scripts
 function cdscr_register_radio_css_js() {
-    wp_enqueue_script(
+	wp_enqueue_script(
         'radio-script',
         plugins_url().'/codescar-radio-widget/radio-js.js',
         array( 'jquery' )
-    );
+	);
     wp_enqueue_style( 
         'radio-style',
         plugins_url().'/codescar-radio-widget/radio-style.css'

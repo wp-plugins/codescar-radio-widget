@@ -43,7 +43,7 @@ select#radio_stations:focus {
 }
 
 #radio_play,#radio_mute{
-    width: 50px;
+    width: 45px;
     height: 22px;
     outline: none;
     color: white;
